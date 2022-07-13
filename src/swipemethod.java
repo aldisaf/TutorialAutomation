@@ -30,7 +30,7 @@ public class swipemethod extends base {
 		WebElement tapInline = driver.findElementByAndroidUIAutomator("text(\"2. Inline\")");
 		taps.tap(tapOptions().withElement(element(tapInline))).perform();
 		
-//		tap clock
+//		tap clock 9
 //		alternative 1
 		WebElement tapClock = driver.findElementByAccessibilityId("9");
 		taps.tap(tapOptions().withElement(element(tapClock))).perform();
@@ -38,6 +38,8 @@ public class swipemethod extends base {
 //		alternative 2
 //		WebElement tapClock = driver.findElementByXPath("//*[@content-desc='9']");
 //		taps.tap(tapOptions().withElement(element(tapClock))).perform();
+		
+		
 
 	}
 
