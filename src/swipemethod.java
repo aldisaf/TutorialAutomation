@@ -5,9 +5,13 @@ import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.TouchAction;
 import static io.appium.java_client.touch.TapOptions.tapOptions;
+import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static java.time.Duration.ofSeconds;
 
 public class swipemethod extends base {
 
@@ -32,12 +36,18 @@ public class swipemethod extends base {
 		
 //		tap clock 9
 //		alternative 1
-		WebElement tapClock = driver.findElementByAccessibilityId("9");
+		AndroidElement tapClock = driver.findElementByAccessibilityId("9");
 		taps.tap(tapOptions().withElement(element(tapClock))).perform();
 		
 //		alternative 2
 //		WebElement tapClock = driver.findElementByXPath("//*[@content-desc='9']");
 //		taps.tap(tapOptions().withElement(element(tapClock))).perform();
+		
+//		longpress 15 and move to 45 then release
+		WebElement pressFifteen = driver.findElementByAccessibilityId("15");
+		WebElement moveToFortyFive = driver.findElementByAccessibilityId("45");
+		taps.press(element(pressFifteen)).waitAction(waitOptions(ofSeconds(3))).moveTo(element(moveToFortyFive)).release().perform();
+		
 		
 		
 
